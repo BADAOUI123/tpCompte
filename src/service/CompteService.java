@@ -124,8 +124,20 @@ public class CompteService extends AbstractFacade<Compte> {
         if (soldeMax != null && !soldeMax.equals("")) {
             query += " AND c.solde <='" + soldeMax + "'";
         }
-        System.out.println("the query is ==>"+query);
+        System.out.println("the query is ==>" + query);
         return query;
+    }
+
+    public int delete(String rib) {
+        Compte compte = find(rib);
+        if (compte == null) {
+            return -1;
+        } else if (compte.getSolde() != 0) {
+            return -2;
+        } else {
+            remove(compte);
+            return 1;
+        }
     }
 
 }

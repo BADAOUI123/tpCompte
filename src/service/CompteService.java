@@ -124,7 +124,6 @@ public class CompteService extends AbstractFacade<Compte> {
         if (soldeMax != null && !soldeMax.equals("")) {
             query += " AND c.solde <='" + soldeMax + "'";
         }
-        System.out.println("the query is ==>" + query);
         return query;
     }
 
